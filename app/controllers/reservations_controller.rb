@@ -1,28 +1,20 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
-  # GET /reservations
-  # GET /reservations.json
   def index
     @reservations = Reservation.all
   end
 
-  # GET /reservations/1
-  # GET /reservations/1.json
   def show
   end
 
-  # GET /reservations/new
   def new
     @reservation = Reservation.new
   end
 
-  # GET /reservations/1/edit
   def edit
   end
 
-  # POST /reservations
-  # POST /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
 
@@ -30,6 +22,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }

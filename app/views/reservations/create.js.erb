@@ -1,0 +1,10 @@
+$('#reservations_table tr:last').after('<%= j render @reservation %>')
+
+// Hide the newly added element and fade it in highlighting...
+$('#reservations_table tr:last').hide().effect('highlight', 5000);
+
+// Clear the form
+$('#form_container input[type=text]').val('');
+
+// Refocus inside city textfield
+$('#city').focus();
